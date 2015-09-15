@@ -71,8 +71,12 @@ class ClassAliasLoader
     {
         foreach ($aliasMap['aliasToClassNameMapping'] as $alias => $originalClassName) {
             $lowerCaseAlias = strtolower($alias);
-            $this->aliasMap['aliasToClassNameMapping'][$lowerCaseAlias] = $originalClassName;
-            $this->aliasMap['classNameToAliasMapping'][$originalClassName][$lowerCaseAlias] = $lowerCaseAlias;
+            if (substr($lowerCaseAlias, -9) === 'interface' && substr($originalClassName, -9) === 'Interface') {
+                class_alias($originalClassName, $alias);
+            } else {
+                $this->aliasMap['aliasToClassNameMapping'][$lowerCaseAlias] = $originalClassName;
+                $this->aliasMap['classNameToAliasMapping'][$originalClassName][$lowerCaseAlias] = $lowerCaseAlias;
+            }
         }
     }
 
