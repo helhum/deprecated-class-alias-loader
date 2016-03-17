@@ -1,3 +1,5 @@
+# This project is abandoned in favor of its successor [typo3/class-alias-loader](https://github.com/TYPO3/class-alias-loader)
+
 Class Alias Loader [![Build Status](https://travis-ci.org/helhum/class-alias-loader.svg?branch=master)](https://travis-ci.org/helhum/class-alias-loader)
 ==================
 
